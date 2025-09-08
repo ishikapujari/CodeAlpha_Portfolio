@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ishika Sumesh Pujari | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        :root {
+            --dark-bg: #171c28;
+            --glass-bg: rgba(24, 33, 53, 0.92);
+            --accent: #22d3ee;
+            --accent2: #ffd54f;
+            --text: #f1f1f1;
+            --card-bg: rgba(30, 38, 58, 0.95);
+        }
+
+        h1,
+        h2,
+        h3,
+        .nav-links a,
+        .achievement-list li {
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text);
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent2);
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: var(--glass-bg);
+            z-index: 100;
+            box-shadow: 0 2px 18px 0 rgba(0, 0, 0, 0.09);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 2rem;
+            flex-wrap: nowrap;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--accent);
+            letter-spacing: 1.5px;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .nav-links a {
+            font-size: 1.09rem;
+            font-weight: 600;
+            color: var(--text);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.18s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background: var(--accent);
+            color: #181b24;
+            outline: none;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5vw 0 4vw 0;
+            background: linear-gradient(120deg, var(--dark-bg) 60%, #202e3a 100%);
+            min-height: 60vh;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            width: 94vw;
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .hero-img img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--accent);
+            box-shadow: 0 6px 32px 0 #1116, 0 0 0 5px var(--glass-bg);
+            background: #fff;
+            display: block;
+        }
+
+        .hero-text {
+            max-width: 650px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.7rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem 0;
+            text-align: center;
+        }
+
+        .hero-text h1 .intro {
+            color: white;
+        }
+
+        .hero-text h1 .name {
+            color: var(--accent2);
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--accent2) 30%, #fff 50%, var(--accent2) 70%);
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .hero-text h2 {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin: 0 0 0.6rem 0;
+            text-align: center;
+        }
+
+        .hero-bio {
+            font-size: 1.06rem;
+            text-align: center;
+            margin-bottom: 1.3rem;
+            color: var(--text);
+        }
+
+        .hero-btns {
+            flex-direction: row;
+            justify-content: center;
+            display: flex;
+            gap: 1.3rem;
+            margin-bottom: 1.3rem;
+        }
+
+        .btn {
+            background: var(--glass-bg);
+            color: var(--text);
+            font-weight: 700;
+            border-radius: 22px;
+            padding: 0.65rem 2rem;
+            margin-top: 0.1rem;
+            border: none;
+            font-size: 1.08rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px 0 #2231;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .btn.accent {
+            background: var(--accent);
+            color: #111b22;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background: var(--accent2);
+            color: #171c28;
+            outline: none;
+        }
+
+        .hero-social {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 1.2rem;
+        }
+
+        .hero-social a {
+            color: var(--accent);
+            margin-right: 1.5rem;
+            font-size: 2rem;
+            transition: color 0.18s, transform 0.18s;
+        }
+
+        .hero-social a:last-child {
+            margin-right: 0;
+        }
+
+        .hero-social a:hover {
+            color: var(--accent2);
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        .section h2 {
+            color: var(--accent2);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            text-align: center;
+        }
+
+        .section {
+            padding: 3.3rem 0 2.5rem 0;
+            max-width: 900px;
+            margin: 0 auto 2.2rem auto;
+            border-radius: 20px;
+        }
+
+        .glass {
+            background: var(--glass-bg);
+            box-shadow: 0 4px 36px 0 rgba(36, 52, 78, 0.09);
+            border: 2px solid #232b3d;
+            backdrop-filter: blur(4px);
+            margin-bottom: 2rem;
+        }
+
+        .journey-short {
+            margin-top: 1.3rem;
+            color: var(--accent);
+            background: rgba(34, 211, 238, 0.1);
+            border-left: 4px solid var(--accent2);
+            padding: 0.7rem 1.1rem;
+            border-radius: 0 11px 11px 0;
+            font-size: 1.07rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem 2.2rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            color: var(--text);
+            border-radius: 1rem;
+            box-shadow: 0 1px 10px #1113;
+            font-weight: 700;
+            text-align: center;
+            padding: 1.2rem 1.2rem;
+            font-size: 1.13rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            justify-content: center;
+            min-width: 170px;
+            max-width: 240px;
+            flex: 1 0 170px;
+        }
+
+        .skill-card i {
+            font-size: 1.3em;
+            color: var(--accent2);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            border-radius: 1.1rem;
+            box-shadow: 0 3px 20px 0 #171d1f0d;
+            padding: 1.35rem 1.2rem;
+            color: var(--text);
+            border: 1.5px solid var(--accent2);
+            transition: transform 0.22s, box-shadow 0.22s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px) scale(1.025);
+            box-shadow: 0 8px 32px #1efcfc30;
+        }
+
+        .project-card h3 {
+            color: var(--accent2);
+            font-size: 1.25rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .project-card .subtitle {
+            color: var(--accent);
+            font-size: 0.97rem;
+            margin-bottom: 0.6rem;
+        }
+
+        #achievements {
+            margin-top: 2.2rem;
+        }
+
+        .achievement-list li {
+            color: var(--text);
+            font-size: 1.08rem;
+            margin-bottom: 0.7rem;
+            padding-left: 0.3rem;
+        }
+
+        .contact-flex {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 3.5rem;
+        }
+
+        .contact-form {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.6rem;
+            max-width: 420px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 0.7rem 1rem;
+            border-radius: 7px;
+            border: 1.5px solid #313943;
+            font-size: 1rem;
+            background: var(--card-bg);
+            color: var(--text);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border: 1.5px solid var(--accent);
+            outline: none;
+        }
+
+        .contact-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-top: 0.5rem;
+        }
+
+        .contact-info {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info .accent {
+            color: var(--accent2);
+            margin-right: 0.7em;
+        }
+
+        .connect-section {
+            margin: 1.3rem 0 0 0;
+        }
+
+        .connect-section p {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .social-icon {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-right: 1.4rem;
+            transition: color 0.22s, transform 0.22s;
+            text-decoration: none;
+        }
+
+        .social-icon:last-child {
+            margin-right: 0;
+        }
+
+        .social-icon:hover {
+            color: var(--accent2);
+            transform: rotate(-8deg) scale(1.15);
+        }
+
+        footer {
+            background: #121824;
+            color: #aaa;
+            text-align: center;
+            padding: 1rem 0 0.7rem;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            margin-top: 2rem;
+        }
+
+        .section.hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .skills-grid {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .contact-flex {
+                flex-direction: column;
+                gap: 2.2rem;
+            }
+
+            .contact-side {
+                align-items: center;
+                width: 100%;
+            }
+
+            .contact-form {
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .contact-form textarea {
+                min-height: 120px;
+                max-height: 120px;
+                resize: none !important;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0.7rem 1rem;
+                border-radius: 7px;
+                border: 1.5px solid #313943;
+                font-size: 1rem;
+                background: var(--card-bg);
+                color: var(--text);
+            }
+
+            #contact .section h2,
+            #contact h2 {
+                text-align: center;
+                width: 100%;
+                display: block;
+            }
+
+            #contact {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-info {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section {
+                padding: 2.2rem 0 1.3rem 0;
+                border-radius: 8px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                padding: 0.5rem 1rem;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav .logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="logo">My Portfolio</span>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-img">
+                <img src="Ishika Pujari.jpg" alt="Ishika Sumesh Pujari" />
+            </div>
+            <div class="hero-text">
+                <h1>
+                    <span class="intro">Hello, I'm</span>
+                    <span class="name">Ishika</span>
+                </h1>
+                <h2>Innovating by Bridging Hardware and Software</h2>
+                <p class="hero-bio">
+                    B.Tech student at VIT Pune | Embedded Systems • IoT • AI-Driven Solutions
+                </p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn accent">View My Work</a>
+                    <a href="https://1drv.ms/b/c/6a39a227d095d1cb/EavLIl_7SCNBuNykEaxg700BPlbgAIHcLfRju037uwkHow?download=1"
+                        target="_blank" class="btn">Download Resume</a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://www.instagram.com/ishikapujari_" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/ishikapujari" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/ishikapujari" target="_blank" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section glass">
+        <h2>About Me</h2>
+        <p>Hello! I'm <strong>Ishika Sumesh Pujari</strong>, B.Tech student in Electronics &amp; Telecommunication
+            Engineering at VIT Pune.</p>
+        <ul>
+            <li>Passionate about Embedded Systems, IoT, VLSI, Robotics and AI-powered technology.</li>
+            <li>Focused on building innovative solutions that bridge hardware and software.</li>
+            <li>Active as a Katalyst India Scholar and member of the VIT Pune Chess Club.</li>
+        </ul>
+        <p class="journey-short"><strong>My Journey:</strong> 99.40% in SSC (2022), 80.17% in HSC (2024), 9.15 CGPA in
+            B.Tech (pursuing).</p>
+    </section>
+
+    <section id="skills" class="section glass">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card"><i class="fa-solid fa-microchip"></i> Embedded Systems</div>
+            <div class="skill-card"><i class="fa-solid fa-cloud"></i> IoT </div>
+            <div class="skill-card"><i class="fa-solid fa-microchip"></i> VLSI</div>
+            <div class="skill-card"><i class="fa-solid fa-robot"></i> Robotics</div>
+            <div class="skill-card"><i class="fa-brands fa-python"></i> Python</div>
+            <div class="skill-card"><i class="fa-solid fa-code"></i> C / C++</div>
+            <div class="skill-card"><i class="fa-solid fa-database"></i> DSA (Exploring)</div>
+            <div class="skill-card"><i class="fa-brands fa-html5"></i> HTML, CSS, JS</div>
+            <div class="skill-card"><i class="fa-solid fa-diagram-project"></i> PCB Design </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Fire Fighting Robot</h3>
+                <p class="subtitle">Arduino Uno, Flame & IR Sensors, Ultrasonic, L298N, Water Pump</p>
+                <p>
+                    Autonomous robot detects and extinguishes fire. Designed and programmed sensor integration and
+                    movement logic.
+                </p>
+            </div>
+            <div class="project-card">
+                <h3>Smart Solar-Powered Irrigation</h3>
+                <p class="subtitle">ESP8266, Moisture/DHT11/PIR, Relay, LCD, Water Pump, Blynk IoT</p>
+                <p>
+                    IoT-enabled, solar-powered irrigation system for automated watering and monitoring. Built ESP8266
+                    code, Blynk integration, solar + battery setup.
+                </p>
+            </div>
+            <div class="project-card">
+                <h3>Python Weather Forecast App</h3>
+                <p class="subtitle">Python, Tkinter, OpenWeatherMap API</p>
+                <p>
+                    Desktop app with real-time weather & AQI, themes, location detection. Built GUI, data integration,
+                    unit conversion.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="section glass">
+        <h2>Achievements &amp; Certifications</h2>
+        <ul class="achievement-list">
+            <li>Katalyst Scholar (Mentorship for Women in STEM)</li>
+            <li>AIR 1323 in AINCAT (Career Aptitude Test)</li>
+            <li>Top 7 Finalist, ENTC Hackathon (Team Lead)</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="section glass">
+        <h2>Get in Touch</h2>
+        <div class="contact-flex">
+            <form id="contactForm" class="contact-form" aria-label="Contact form">
+                <input type="text" name="name" placeholder="Your name" required />
+                <input type="email" name="email" placeholder="Your email" required />
+                <textarea name="message" placeholder="Your message" required maxlength="1000"></textarea>
+                <button type="submit" class="btn accent">Send Message</button>
+            </form>
+            <div class="contact-side">
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope accent"></i> <a
+                            href="mailto:ishikapujari123@gmail.com">ishikapujari123@gmail.com</a></p>
+                    <p><i class="fas fa-location-dot accent"></i> Pune, Maharashtra, India</p>
+                </div>
+                <div class="connect-section">
+                    <p style="font-weight:600;margin-bottom:0.8rem;">Connect With Me</p>
+                    <a href="https://www.instagram.com/ishikapujari_" target="_blank" aria-label="Instagram"
+                        class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ishikapujari" target="_blank" aria-label="LinkedIn"
+                        class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/ishikapujari" target="_blank" aria-label="GitHub" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 Ishika Sumesh Pujari. All rights reserved.</p>
+    </footer>
+    <script>
+
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetID = this.getAttribute('href').slice(1);
+                const targetSection = document.getElementById(targetID);
+                if (targetSection) targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        const faders = document.querySelectorAll('.section');
+        const appearOptions = {
+            threshold: 0.13,
+            rootMargin: "0px 0px -10px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+        faders.forEach(fader => {
+            fader.classList.add('hidden');
+            appearOnScroll.observe(fader);
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert("Thank you for reaching out! I'll get back to you soon.");
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
